@@ -1,7 +1,7 @@
-#SBATCH --time=00:20:00
+#SBATCH --time=00:02:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --mem=2GB
+#SBATCH --mem=1GB
 #SBATCH --gres=gpu:1
 
 # set up a name variable
@@ -14,10 +14,10 @@ ml ifort/2017.1.132-GCC-6.3.0-2.27  impi/2017.1.132
 module load Python/3.6.1
 module load Blender
 module load CUDA
-module list
+# module list
 
 # change to the working directory
-cd ${SLURM_SUBMIT_DIR}
+# cd ${SLURM_SUBMIT_DIR}
 
 # make a subdirectory with the same name as the blend file
 if [ -d $file ]
@@ -27,9 +27,9 @@ fi
 mkdir $file
 
 # run blender
-blender -b $file.blend -o //${file}/render_ -F PNG -f 0
+time blender -b $file.blend -o //${file}/render_ -F PNG -f 0
 
 # show job stats
-scontrol show job $SLURM_JOBID
+# scontrol show job $SLURM_JOBID
 
 # this sb file copied from HPCC getexample blender_farm
