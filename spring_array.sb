@@ -1,11 +1,12 @@
 #!/bin/bash
 
 #SBATCH --time=03:59:00
-#SBATCH --mem=2GB
+#SBATCH --mem=16GB
 #SBATCH -N 1
-#SBATCH -c 1
+#SBATCH -c 12
 #SBATCH --gres=gpu:1
 #SBATCH --array=1-10
+
 
 # set up a name variable
 file=spring
@@ -31,7 +32,7 @@ fi
 mkdir $file
 
 # run blender
-time blender -b $file.blend -o //${file}/array__ -F PNG -f ${SLURM_ARRAY_TASK_ID} -E CYCLES -t 48 -- --cycles-device GPU
+time srun blender -b $file.blend -o //${file}/array__ -F PNG -f ${SLURM_ARRAY_TASK_ID} -E CYCLES -t 48 -- --cycles-device GPU
 
 # show job stats
 scontrol show job $SLURM_JOBID
