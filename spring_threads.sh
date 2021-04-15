@@ -24,7 +24,7 @@ fi
 mkdir $file
 
 # run blender
-time blender -b $file.blend -o //${file}/spring_ -a -F PNG
+time blender -b $file.blend -o //${file}/spring_ -a -F PNG -t 1
 
 # -E CYCLES -t 48 -- --cycles-device GPU
 
