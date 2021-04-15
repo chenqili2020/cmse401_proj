@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 #SBATCH --time=00:02:00
+=======
+#!/bin/bash
+#SBATCH --time=00:20:00
+>>>>>>> 3ebd26e5f21e79678af5e1836075d2720f44aca5
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --mem=1GB
