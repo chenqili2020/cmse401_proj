@@ -1,11 +1,11 @@
 #!/bin/bash
 
 #SBATCH --time=03:59:00
-#SBATCH --mem=100GB
+#SBATCH --mem=12GB
 #SBATCH -N 1
-#SBATCH -c 12
+#SBATCH -c 48
 #SBATCH --gres=gpu:1
-#SBATCH --array=1-50
+#SBATCH --array=1-100
 
 
 # set up a name variable
